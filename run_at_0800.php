@@ -75,8 +75,6 @@ foreach ($websites as $temp) {
     $exec_time_end = ((float)$exec_time_usec_2 + (float)$exec_time_sec_2);
     $runTime = round(($exec_time_end - $php_exec_time_start) * 1000, 5);
     file_put_contents(__DIR__ . "/{$stock_id}.txt", "$year-$month-$date, $kp, $lookkp, $zhulichengben, $currentPrice, $zhang_die_fu, $zuo_shou, $jin_kai, $zui_gao, $zui_di, $cheng_jiao_liang, $cheng_jiao_e, $huan_shou_percent, $zhen_fu_percent, $liang_bi, $runTime\r\n", 8);
-    
-    exit;
 }
 
 exit;

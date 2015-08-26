@@ -265,7 +265,7 @@ option_chengjiaoe = {
         formatter: function (params) {
                     var res = params[0].name;
                     res += '<br/>' + params[0].seriesName;
-                    res += '<br/>' + Math.round(params[0].value/1000);
+                    res += '<br/>' + Math.round(params[0].value/10000);
                     return res;
                 }
     },

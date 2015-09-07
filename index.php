@@ -67,14 +67,9 @@ HTML;
     } else {
         $data = [];
         $h = fopen("$stock_id.txt", 'r');
-        $xx = 1;
         while(!feof($h)) {
             $line = fgets($h);
-            
-            $xx++;
-            if ($xx === 1000) {
-                break;
-            }
+
             if (strlen($line) > 0)
                 $data[] = explode(', ', $line);
         }
@@ -89,8 +84,14 @@ HTML;
         $huanshouData = [];
         $zhenfuData = [];
         $liangbiData = [];
+        
+        $appeared = array();
         foreach ($data as $d) {
             list ($date, $kp, $lookkp, $zhulichengben, $currentPrice, $zhang_die_fu, $zuo_shou, $jin_kai, $zui_gao, $zui_di, $cheng_jiao_liang, $cheng_jiao_e, $huan_shou_percent, $zhen_fu_percent, $liang_bi, $runTime) = $d;
+            if (isset($appeared[$date])) {
+                continue;
+            }
+            $appeared[$date] = true;
             $dateData[] = '"' . str_replace('-' , '/', $date) . '"';
             $kData[] = "[$jin_kai, $currentPrice, $zui_di, $zui_gao]";
             $chengjiaoeData[] = $cheng_jiao_e;

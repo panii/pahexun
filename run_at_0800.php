@@ -10,7 +10,7 @@ if ($xingqi == 0 || $xingqi == 1) {
     exit;
 }
 
-$websites = require_once 'my_stock.php';
+$websites = require_once __DIR__ . '/my_stock.php';
 
 $ti = array('最新交易日', '</span>&nbsp;&nbsp; 主力成本', '年', '月', '日&nbsp;&nbsp;该股为<span class="f_red">', '元');
 foreach ($ti as &$v) {
@@ -21,24 +21,24 @@ $qingdukongpan = iconv("UTF-8", "GB2312//IGNORE", '轻度控盘');
 $zhongdukongpan = iconv("UTF-8", "GB2312//IGNORE", '中度控盘');
 $gaodukongpan = iconv("UTF-8", "GB2312//IGNORE", '高度控盘');
 $qiangliekongpan = iconv("UTF-8", "GB2312//IGNORE", '强烈控盘');
-    
+
 foreach ($websites as $temp) {
     list ($url, $zh_name) = $temp;
     list($exec_time_usec_1, $exec_time_sec_1) = explode(' ', microtime());
     $php_exec_time_start = ((float)$exec_time_usec_1 + (float)$exec_time_sec_1);
-    
+
     $ch = curl_init();
-    curl_setopt ($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)");
     $contents = curl_exec($ch);
     curl_close($ch);
-    
+
     $start = strpos($contents, 'text_01') + 9;
     $end = strpos($contents, '</p>', $start);
     $line = substr($contents, $start, $end - $start);
     $line2 = str_replace($ti, ' ', $line);
-    
+
     list($_, $year, $month, $date, $kongpan, $zhulichengben) = explode(' ', $line2);
     if ($kongpan == $weiruokongpan) {
         $kp = 1;
@@ -60,9 +60,16 @@ foreach ($websites as $temp) {
     }
 
     $stock_id = str_replace(array('http://stockdata.stock.hexun.com/zlkp/s', '.shtml'), '', $url);
-    
+
+    if (file_exists(__DIR__ . "/{$stock_id}.txt")) {
+        $oldContents = file_get_contents(__DIR__ . "/{$stock_id}.txt");
+        if (strpos($oldContents, "$year-$month-$date") !== false) {
+            continue;
+        }
+    }
+
     $ch = curl_init();
-    curl_setopt ($ch, CURLOPT_URL, 'http://quote.stock.hexun.com/stockdata/stock_quote.aspx?stocklist=' . $stock_id);
+    curl_setopt($ch, CURLOPT_URL, 'http://quote.stock.hexun.com/stockdata/stock_quote.aspx?stocklist=' . $stock_id);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)");
     $contents = curl_exec($ch);

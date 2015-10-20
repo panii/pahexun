@@ -12,7 +12,7 @@ if ($xingqi == 0 || $xingqi == 1) {
 
 $websites = require_once __DIR__ . '/my_stock.php';
 
-$ti = array('最新交易日', '</span>&nbsp;&nbsp; 主力成本', '年', '月', '日&nbsp;&nbsp;该股为<span class="f_red">', '元');
+$ti = array('最新交易日', '</span>&nbsp;&nbsp; 主力成本', '年', '月', '日', '&nbsp;&nbsp;该股为<span class="f_red">', '元');
 foreach ($ti as &$v) {
     $v = iconv("UTF-8", "GB2312//IGNORE", $v);
 }
@@ -39,6 +39,10 @@ foreach ($websites as $temp) {
     $line = substr($contents, $start, $end - $start);
     $line2 = str_replace($ti, ' ', $line);
 
+    if ($line2 == '    ') {
+        continue;
+    }
+    
     list($_, $year, $month, $date, $kongpan, $zhulichengben) = explode(' ', $line2);
     if ($kongpan == $weiruokongpan) {
         $kp = 1;
@@ -84,6 +88,9 @@ foreach ($websites as $temp) {
     file_put_contents(__DIR__ . "/{$stock_id}.txt", "$year-$month-$date, $kp, $lookkp, $zhulichengben, $currentPrice, $zhang_die_fu, $zuo_shou, $jin_kai, $zui_gao, $zui_di, $cheng_jiao_liang, $cheng_jiao_e, $huan_shou_percent, $zhen_fu_percent, $liang_bi, $runTime\r\n", 8);
 
     file_put_contents(__DIR__ . '/log.txt', "/{$stock_id}.txt" . "\r\n", 8);
+    
+    // wait for 0.2 seconds
+    usleep(200000);
 }
 
 exit;

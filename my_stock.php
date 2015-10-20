@@ -22,7 +22,7 @@ return [
     ["http://stockdata.stock.hexun.com/zlkp/s002429.shtml", '兆驰股份'],
     ["http://stockdata.stock.hexun.com/zlkp/s300073.shtml", '当升科技'],
     ["http://stockdata.stock.hexun.com/zlkp/s002093.shtml", '国脉科技'],
-    ["http://stockdata.stock.hexun.com/zlkp/s002638.shtml", '勤上光电'],
+    //["http://stockdata.stock.hexun.com/zlkp/s002638.shtml", '勤上光电'],
     ["http://stockdata.stock.hexun.com/zlkp/s601929.shtml", '吉视传媒'],
     ["http://stockdata.stock.hexun.com/zlkp/s600016.shtml", '民生银行'],
     ["http://stockdata.stock.hexun.com/zlkp/s002342.shtml", '巨力索具'],

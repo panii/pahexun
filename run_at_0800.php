@@ -39,11 +39,13 @@ foreach ($websites as $temp) {
     $line = substr($contents, $start, $end - $start);
     $line2 = str_replace($ti, ' ', $line);
 
-    if ($line2 == '    ') {
+    $a = explode(' ', $line2);
+    if (count($a) < 6) {
         continue;
     }
+
+    list($_, $year, $month, $date, $kongpan, $zhulichengben) = $a;
     
-    list($_, $year, $month, $date, $kongpan, $zhulichengben) = explode(' ', $line2);
     if ($kongpan == $weiruokongpan) {
         $kp = 1;
         $lookkp = 'wei_ruo';

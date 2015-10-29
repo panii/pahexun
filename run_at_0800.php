@@ -40,11 +40,11 @@ foreach ($websites as $temp) {
     $line2 = str_replace($ti, ' ', $line);
 
     $a = explode(' ', $line2);
-    if (count($a) < 6) {
+    if (count($a) < 8) {
         continue;
     }
 
-    list($_, $year, $month, $date, $kongpan, $zhulichengben) = $a;
+    list($_, $year, $month, $date, $empty, $kongpan, $zhulichengben, $empty2) = $a;
     
     if ($kongpan == $weiruokongpan) {
         $kp = 1;

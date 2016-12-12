@@ -70,8 +70,11 @@ HTML;
         while(!feof($h)) {
             $line = fgets($h);
 
-            if (strlen($line) > 0)
-                $data[] = explode(', ', $line);
+            if (strlen($line) > 0) {
+                if ($line{0} == 2) {
+                    $data[] = explode(', ', $line);
+                }
+            }
         }
         fclose($h);
         

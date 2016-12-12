@@ -70,8 +70,14 @@ HTML;
         while(!feof($h)) {
             $line = fgets($h);
 
-            if (strlen($line) > 0)
-                $data[] = explode(', ', $line);
+            if (strlen($line) > 0) {
+                if ($line{0} == 2) {
+                    $aaaa = explode(', ', $line);
+                    if (count($aaaa) == 16) {
+                        $data[] = $aaaa;
+                    }
+                }
+            }
         }
         fclose($h);
         

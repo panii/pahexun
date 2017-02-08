@@ -92,7 +92,7 @@ foreach ($websites as $temp) {
     file_put_contents(__DIR__ . '/log.txt', "/{$stock_id}.txt" . "\r\n", 8);
     
     // wait for 0.2 seconds
-    usleep(200000);
+    usleep(2000000);
 }
 
 exit;

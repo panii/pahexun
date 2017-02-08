@@ -4,6 +4,7 @@ date_default_timezone_set('Asia/Shanghai');
 set_time_limit(0);
 
 return [
+    ["http://stockdata.stock.hexun.com/zlkp/s600810.shtml", '神马股份'],
     ["http://stockdata.stock.hexun.com/zlkp/s600652.shtml", '游久游戏'],
     ["http://stockdata.stock.hexun.com/zlkp/s300052.shtml", '中青宝'],
     ["http://stockdata.stock.hexun.com/zlkp/s300315.shtml", '掌趣科技'],
@@ -20,7 +21,6 @@ return [
     ["http://stockdata.stock.hexun.com/zlkp/s601988.shtml", '中国银行'],
     ["http://stockdata.stock.hexun.com/zlkp/s600166.shtml", '福田汽车'],
     ["http://stockdata.stock.hexun.com/zlkp/s002181.shtml", '粤传媒'],
-    ["http://stockdata.stock.hexun.com/zlkp/s600810.shtml", '神马股份'],
     ["http://stockdata.stock.hexun.com/zlkp/s601989.shtml", '中国重工'],
     ["http://stockdata.stock.hexun.com/zlkp/s000738.shtml", '中航动控'],
     ["http://stockdata.stock.hexun.com/zlkp/s601398.shtml", '工商银行'],

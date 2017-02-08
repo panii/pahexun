@@ -62,7 +62,7 @@ foreach ($websites as $temp) {
         $kp = 5;
         $lookkp = 'qiang_lie';
     } else {
-        die('|' . $kongpan);
+        continue;
     }
 
     $stock_id = str_replace(array('http://stockdata.stock.hexun.com/zlkp/s', '.shtml'), '', $url);
@@ -92,7 +92,7 @@ foreach ($websites as $temp) {
     file_put_contents(__DIR__ . '/log.txt', "/{$stock_id}.txt" . "\r\n", 8);
     
     // wait for 0.2 seconds
-    usleep(2000000);
+    usleep(200000);
 }
 
 exit;

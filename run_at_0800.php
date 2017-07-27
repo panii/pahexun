@@ -77,7 +77,7 @@ foreach ($websites as $temp) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'http://quote.stock.hexun.com/stockdata/stock_quote.aspx?stocklist=' . $stock_id);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)");
+    curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
     $contents = curl_exec($ch);
     curl_close($ch);
     // $contents = "dataArr = [['000002','万 科Ａ',14.50,1.97,14.22,14.09,14.54,14.03,999341.49,1430580813,1.03,3.59,0.73]];indexdataArr = [];NewQuoteListPage.GetData(dataArr,indexdataArr);"

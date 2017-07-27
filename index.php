@@ -103,7 +103,7 @@ HTML;
             $chengjiaoeData[] = $cheng_jiao_e;
             $chengjiaoliangData[] = $cheng_jiao_liang;
             $zhulikongpanData[] = $kp;
-            $zhulichengbenData[] = $zhulichengben;
+            $zhulichengbenData[] = $zhulichengben === '--' ? '0' : $zhulichengben;
             $huanshouData[] = $huan_shou_percent;
             $zhenfuData[] = $zhen_fu_percent;
             $liangbiData[] = $liang_bi;

@@ -6,6 +6,7 @@ set_time_limit(0);
 return [
     ["http://stockdata.stock.hexun.com/zlkp/s600810.shtml", '神马股份'],
     ["http://stockdata.stock.hexun.com/zlkp/s002174.shtml", '游族网络'],
+    ["http://stockdata.stock.hexun.com/zlkp/s002464.shtml", '众应互联'],
     ["http://stockdata.stock.hexun.com/zlkp/s600166.shtml", '福田汽车'],
     ["http://stockdata.stock.hexun.com/zlkp/s600193.shtml", '创兴资源'],
     ["http://stockdata.stock.hexun.com/zlkp/s000830.shtml", '鲁西化工'],

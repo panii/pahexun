@@ -97,6 +97,9 @@ HTML;
             if (isset($appeared[$date])) {
                 continue;
             }
+            if (substr($date, 0, 4) == '2018') {
+                continue;
+            }
             $appeared[$date] = true;
             $dateData[] = '"' . str_replace('-' , '/', $date) . '"';
             $kData[] = "[$jin_kai, $currentPrice, $zui_di, $zui_gao]";

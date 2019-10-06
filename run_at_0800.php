@@ -7,6 +7,7 @@ set_time_limit(0);
 
 $xingqi = date('w', time());
 if ($xingqi == 0 || $xingqi == 1) {
+    file_put_contents(__DIR__ . '/log.txt', date('Y-m-d H:i:s') . " xingqi==0||xingqi==1 exit" . "\r\n", 8);
     exit;
 }
 
@@ -89,10 +90,10 @@ foreach ($websites as $temp) {
     $runTime = round(($exec_time_end - $php_exec_time_start) * 1000, 5);
     file_put_contents(__DIR__ . "/{$stock_id}.txt", "$year-$month-$date, $kp, $lookkp, $zhulichengben, $currentPrice, $zhang_die_fu, $zuo_shou, $jin_kai, $zui_gao, $zui_di, $cheng_jiao_liang, $cheng_jiao_e, $huan_shou_percent, $zhen_fu_percent, $liang_bi, $runTime\r\n", 8);
 
-    file_put_contents(__DIR__ . '/log.txt', "/{$stock_id}.txt" . "\r\n", 8);
+    file_put_contents(__DIR__ . '/log.txt', date('Y-m-d H:i:s') . "/{$stock_id}.txt" . "\r\n", 8);
     
     // wait for 0.2 seconds
     usleep(200000);
 }
-
+file_put_contents(__DIR__ . '/log.txt', date('Y-m-d H:i:s') . " end exit" . "\r\n", 8);
 exit;

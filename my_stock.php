@@ -4,6 +4,8 @@ date_default_timezone_set('Asia/Shanghai');
 set_time_limit(0);
 
 return [
+    ["http://stockdata.stock.hexun.com/zlkp/s002530.shtml", '金财互联'],
+    ["http://stockdata.stock.hexun.com/zlkp/s600070.shtml", '浙江富润'],
     ["http://stockdata.stock.hexun.com/zlkp/s600810.shtml", '神马股份'],
     ["http://stockdata.stock.hexun.com/zlkp/s002174.shtml", '游族网络'],
     ["http://stockdata.stock.hexun.com/zlkp/s002464.shtml", '众应互联'],

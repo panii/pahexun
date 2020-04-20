@@ -63,15 +63,15 @@ foreach ($websites as $temp) {
         }
         
         if ($kp == 1) {
-            $zhulikongpanData[] = substr($date, 5) . '微弱';
+            $zhulikongpanData[] = substr($date, 0) . ' <span style="color:#FFE6E6">微弱</span>';
         } else if ($kp == 2) {
-            $zhulikongpanData[] = substr($date, 5) . '轻度';
+            $zhulikongpanData[] = substr($date, 0) . ' <span style="color:#FFDBDB">轻度</span>';
         } else if ($kp == 3) {
-            $zhulikongpanData[] = substr($date, 5) . '中度';
+            $zhulikongpanData[] = substr($date, 0) . ' <span style="color:#FFCDCD">中度</span>';
         } else if ($kp == 4) {
-            $zhulikongpanData[] = substr($date, 5) . '高度';
+            $zhulikongpanData[] = substr($date, 0) . ' <span style="color:#FFACAC">高度</span>';
         } else if ($kp == 5) {
-            $zhulikongpanData[] = substr($date, 5) . '强烈';
+            $zhulikongpanData[] = substr($date, 0) . ' <span style="color:#FF9595">强烈</span>';
         }
     }
     

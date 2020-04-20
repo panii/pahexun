@@ -13,6 +13,7 @@ if (!isset($_GET['id'])) {
         $a[] = "<a href='/index.php?id=$stock_id'>$zh_name ($stock_id)</a>";
     }
     $a = join("<br><br>", $a) . '<br><br><br><br><br><br>';
+    $mmmmm = date('m');
     echo <<<HTML
 <!DOCTYPE html>
 <html id="htmltag" >
@@ -21,6 +22,10 @@ if (!isset($_GET['id'])) {
 	<title>list</title>
 </head>
 <body>
+<a href="/huizong.php?m=$mmmmm">汇总</a>
+<br>
+<br>
+<br>
 $a
 </body>
 </html>
@@ -97,7 +102,19 @@ HTML;
             if (isset($appeared[$date])) {
                 continue;
             }
+            if (substr($date, 0, 4) == '2015') {
+                continue;
+            }
+            if (substr($date, 0, 4) == '2016') {
+                continue;
+            }
+            if (substr($date, 0, 4) == '2017') {
+                continue;
+            }
             if (substr($date, 0, 4) == '2018') {
+                continue;
+            }
+            if (substr($date, 0, 4) == '2019') {
                 continue;
             }
             $appeared[$date] = true;

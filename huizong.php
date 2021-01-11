@@ -57,6 +57,9 @@ foreach ($websites as $temp) {
         if (substr($date, 0, 4) == '2019') {
             continue;
         }
+        if (substr($date, 0, 4) == '2020') {
+            continue;
+        }
         
         if (substr($date, 5, 2) != $mmmmm) {
             continue;

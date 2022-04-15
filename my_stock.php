@@ -4,6 +4,11 @@ date_default_timezone_set('Asia/Shanghai');
 set_time_limit(0);
 
 return [
+    //["http://stockdata.stock.hexun.com/zlkp/s600615.shtml", '*ST丰华'],
+    ["http://stockdata.stock.hexun.com/zlkp/s002355.shtml", '兴民智通'],
+    ["http://stockdata.stock.hexun.com/zlkp/s000889.shtml", '中嘉博创'],
+    ["http://stockdata.stock.hexun.com/zlkp/s002572.shtml", '索菲亚'],
+    ["http://stockdata.stock.hexun.com/zlkp/s600312.shtml", '平高电气'],
     ["http://stockdata.stock.hexun.com/zlkp/s002530.shtml", '金财互联'],
     ["http://stockdata.stock.hexun.com/zlkp/s002011.shtml", '盾安环境'],
     ["http://stockdata.stock.hexun.com/zlkp/s002195.shtml", '二三四五'],
@@ -42,13 +47,11 @@ return [
     ["http://stockdata.stock.hexun.com/zlkp/s002869.shtml", '金溢科技'],
     ["http://stockdata.stock.hexun.com/zlkp/s601988.shtml", '中国银行'],
     ["http://stockdata.stock.hexun.com/zlkp/s601888.shtml", '中国国旅'],
-    
     ["http://stockdata.stock.hexun.com/zlkp/s002181.shtml", '粤传媒'],
     ["http://stockdata.stock.hexun.com/zlkp/s601989.shtml", '中国重工'],
     ["http://stockdata.stock.hexun.com/zlkp/s000738.shtml", '中航动控'],
     ["http://stockdata.stock.hexun.com/zlkp/s601398.shtml", '工商银行'],
     ["http://stockdata.stock.hexun.com/zlkp/s002594.shtml", '比亚迪'],
-    ["http://stockdata.stock.hexun.com/zlkp/s600312.shtml", '平高电气'],
     ["http://stockdata.stock.hexun.com/zlkp/s600029.shtml", '南方航空'],
     ["http://stockdata.stock.hexun.com/zlkp/s000958.shtml", '东方能源'],
     ["http://stockdata.stock.hexun.com/zlkp/s600628.shtml", '新世界'],
@@ -68,8 +71,6 @@ return [
     ["http://stockdata.stock.hexun.com/zlkp/s600020.shtml", '中原高速'],
     ["http://stockdata.stock.hexun.com/zlkp/s002027.shtml", '七喜控股'],
     ["http://stockdata.stock.hexun.com/zlkp/s002043.shtml", '兔宝宝'],
-    
-    ["http://stockdata.stock.hexun.com/zlkp/s000889.shtml", '茂业物流'],
     ["http://stockdata.stock.hexun.com/zlkp/s002007.shtml", '华兰生物'],
     ["http://stockdata.stock.hexun.com/zlkp/s000970.shtml", '中科三环'],
     ["http://stockdata.stock.hexun.com/zlkp/s600894.shtml", '广日股份'],
@@ -81,7 +82,6 @@ return [
     ["http://stockdata.stock.hexun.com/zlkp/s600609.shtml", '金杯汽车'],
     ["http://stockdata.stock.hexun.com/zlkp/s600649.shtml", '城投控股'],
     ["http://stockdata.stock.hexun.com/zlkp/s002231.shtml", '奥维通信'],
-    ["http://stockdata.stock.hexun.com/zlkp/s002355.shtml", '兴民钢圈'],
     ["http://stockdata.stock.hexun.com/zlkp/s000402.shtml", '金融街'],
     ["http://stockdata.stock.hexun.com/zlkp/s000533.shtml", '万家乐'],
     ["http://stockdata.stock.hexun.com/zlkp/s002442.shtml", '龙星化工'],
@@ -90,7 +90,6 @@ return [
     ["http://stockdata.stock.hexun.com/zlkp/s600851.shtml", '海欣股份'],
     ["http://stockdata.stock.hexun.com/zlkp/s000868.shtml", '安凯客车'],
     ["http://stockdata.stock.hexun.com/zlkp/s601390.shtml", '中国中铁'],
-    ["http://stockdata.stock.hexun.com/zlkp/s600615.shtml", '丰华股份'],
     ["http://stockdata.stock.hexun.com/zlkp/s600485.shtml", '信威集团'],
     ["http://stockdata.stock.hexun.com/zlkp/s600821.shtml", '津劝业'],
     

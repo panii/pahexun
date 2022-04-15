@@ -31,7 +31,7 @@ foreach ($websites as $temp) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
+    curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36");
     $contents = curl_exec($ch);
     curl_close($ch);
 
@@ -41,12 +41,16 @@ foreach ($websites as $temp) {
     $line2 = str_replace($ti, ' ', $line);
 
     $a = explode(' ', $line2);
+    
+    // print_r($a);
+    // print_r($line2);
+    // exit;
     if (count($a) < 8) {
         continue;
     }
 
     list($_, $year, $month, $date, $empty, $kongpan, $zhulichengben, $empty2) = $a;
-    
+    //echo $kongpan;exit;
     if ($kongpan == $weiruokongpan) {
         $kp = 1;
         $lookkp = 'wei_ruo';
@@ -75,13 +79,14 @@ foreach ($websites as $temp) {
         }
     }
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'http://quote.stock.hexun.com/stockdata/stock_quote.aspx?stocklist=' . $stock_id);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
-    $contents = curl_exec($ch);
-    curl_close($ch);
-    // $contents = "dataArr = [['000002','万 科Ａ',14.50,1.97,14.22,14.09,14.54,14.03,999341.49,1430580813,1.03,3.59,0.73]];indexdataArr = [];NewQuoteListPage.GetData(dataArr,indexdataArr);"
+    // $ch = curl_init();
+    // curl_setopt($ch, CURLOPT_URL, 'http://quote.stock.hexun.com/stockdata/stock_quote.aspx?stocklist=' . $stock_id);
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36");
+    // $contents = curl_exec($ch);
+    // curl_close($ch);
+    // echo $contents;exit;
+    $contents = "dataArr = [['$stock_id','$zh_name',0,0,0,0,0,0,0,0,0,0,0]];indexdataArr  = [];NewQuoteListPage.GetData(dataArr,indexdataArr);";
     $contents2 = explode(']]', str_replace(array("dataArr = [[", "'"), '', $contents))[0];
     list($id, $name, $currentPrice, $zhang_die_fu, $zuo_shou, $jin_kai, $zui_gao, $zui_di, $cheng_jiao_liang, $cheng_jiao_e, $huan_shou_percent, $zhen_fu_percent, $liang_bi) = explode(',', $contents2);
     
@@ -89,9 +94,9 @@ foreach ($websites as $temp) {
     $exec_time_end = ((float)$exec_time_usec_2 + (float)$exec_time_sec_2);
     $runTime = round(($exec_time_end - $php_exec_time_start) * 1000, 5);
     file_put_contents(__DIR__ . "/{$stock_id}.txt", "$year-$month-$date, $kp, $lookkp, $zhulichengben, $currentPrice, $zhang_die_fu, $zuo_shou, $jin_kai, $zui_gao, $zui_di, $cheng_jiao_liang, $cheng_jiao_e, $huan_shou_percent, $zhen_fu_percent, $liang_bi, $runTime\r\n", 8);
+    //echo __DIR__ . "/{$stock_id}.txt", "$year-$month-$date, $kp, $lookkp, $zhulichengben, $currentPrice, $zhang_die_fu, $zuo_shou, $jin_kai, $zui_gao, $zui_di, $cheng_jiao_liang, $cheng_jiao_e, $huan_shou_percent, $zhen_fu_percent, $liang_bi, $runTime\r\n";
 
     file_put_contents(__DIR__ . '/log.txt', date('Y-m-d H:i:s') . "/{$stock_id}.txt" . "\r\n", 8);
-    
     // wait for 0.2 seconds
     usleep(200000);
 }

@@ -19,20 +19,22 @@ foreach ($websites as $temp) {
     $huizong[$stock_id][] = $stock_name;
 
     $data = [];
-    $h = fopen("$stock_id.txt", 'r');
-    while(!feof($h)) {
-        $line = fgets($h);
+    if (file_exists("$stock_id.txt")) {
+        $h = fopen("$stock_id.txt", 'r');
+        while(!feof($h)) {
+            $line = fgets($h);
 
-        if (strlen($line) > 0) {
-            if ($line{0} == 2) {
-                $aaaa = explode(', ', $line);
-                if (count($aaaa) == 16) {
-                    $data[] = $aaaa;
+            if (strlen($line) > 0) {
+                if ($line{0} == 2) {
+                    $aaaa = explode(', ', $line);
+                    if (count($aaaa) == 16) {
+                        $data[] = $aaaa;
+                    }
                 }
             }
         }
+        fclose($h);
     }
-    fclose($h);
     
     $zhulikongpanData = [];
     
@@ -42,25 +44,9 @@ foreach ($websites as $temp) {
         if (isset($appeared[$date])) {
             continue;
         }
-        if (substr($date, 0, 4) == '2015') {
+        if (substr($date, 0, 4) != date('Y')) {
             continue;
         }
-        if (substr($date, 0, 4) == '2016') {
-            continue;
-        }
-        if (substr($date, 0, 4) == '2017') {
-            continue;
-        }
-        if (substr($date, 0, 4) == '2018') {
-            continue;
-        }
-        if (substr($date, 0, 4) == '2019') {
-            continue;
-        }
-        if (substr($date, 0, 4) == '2020') {
-            continue;
-        }
-        
         if (substr($date, 5, 2) != $mmmmm) {
             continue;
         }
